@@ -4,13 +4,22 @@ Idempotent macOS setup script. Run it once on a fresh Mac, or run it repeatedly 
 
 ## Quick Start
 
+Run this on a fresh Mac (no dependencies required):
+
 ```bash
-git clone https://github.com/rnxj/mac-bootstrap.git
-cd mac-bootstrap
-./bootstrap.sh
+curl -fsSL https://raw.githubusercontent.com/rnxj/mac-bootstrap/main/install.sh | bash
 ```
 
-After running, restart your terminal and run `p10k configure` to set up your prompt theme.
+That's it. After it finishes, restart your terminal and run `p10k configure` to set up your prompt theme.
+
+### Alternative: Clone manually
+
+If you already have git installed:
+
+```bash
+git clone https://github.com/rnxj/mac-bootstrap.git ~/.mac-bootstrap
+~/.mac-bootstrap/bootstrap.sh
+```
 
 ## What It Does
 
@@ -64,8 +73,10 @@ After running, restart your terminal and run `p10k configure` to set up your pro
 
 ```
 mac-bootstrap/
+├── install.sh      # One-liner installer (curl this)
 ├── bootstrap.sh    # Main setup script
 ├── Brewfile        # Homebrew packages
+├── .mise.toml      # Language runtime versions
 └── README.md
 ```
 
@@ -106,8 +117,16 @@ mise use --global node@20 python@3.12 go@latest
 
 ## Updating
 
+Re-run the installer to get the latest version:
+
 ```bash
-cd mac-bootstrap
+curl -fsSL https://raw.githubusercontent.com/rnxj/mac-bootstrap/main/install.sh | bash
+```
+
+Or if you want to update manually:
+
+```bash
+cd ~/.mac-bootstrap
 git pull
 ./bootstrap.sh
 ```
