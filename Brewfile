@@ -5,6 +5,7 @@ brew "mise"
 
 # Shell tools
 brew "fzf"
+brew "mole"
 brew "zoxide"
 
 # Fonts
